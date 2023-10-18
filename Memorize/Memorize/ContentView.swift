@@ -17,6 +17,7 @@ struct ContentView: View {
 				cards
 			}
 			Spacer()
+			themeButtons
 		}
 		.padding()
 	}
@@ -30,6 +31,39 @@ struct ContentView: View {
 		}
 		.foregroundColor(.red)
 		.padding()
+	}
+	
+	func changeTheme(theme: Int, symbol: String) -> some View {
+		Button(action: {
+			//update emojis
+		}, label: {
+				Image(systemName: symbol)
+		})
+	}
+	
+	var theme1: some View {
+		//FIXME: add actual system image for the symbol
+		changeTheme(theme: 0, symbol: "globe")
+	}
+	
+	var theme2: some View {
+		changeTheme(theme: 1, symbol: "globe")
+	}
+	
+	var theme3: some View {
+		changeTheme(theme: 2, symbol: "globe")
+	}
+	
+	var themeButtons: some View {
+		HStack {
+			theme1
+			Spacer()
+			theme2
+			Spacer()
+			theme3
+		}
+		.imageScale(.large)
+		.font(.largeTitle)
 	}
 }
 
